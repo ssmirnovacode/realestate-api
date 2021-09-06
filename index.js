@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const MONGODB_URI = process.env.MONGODB_URI;
 const PORT = process.env.PORT || 3001;
 
+const homeRoutes = require('./routes/homeRoutes');
+
 const app = express();
 
 app.use(express.json());
@@ -16,6 +18,8 @@ app.use((req,res,next) => {
     next();
 });
 
+app.use(homeRoutes);
+
 //error handling middleware
 app.use((error, req, res, next) => {
     console.log(error);
@@ -26,7 +30,7 @@ app.use((error, req, res, next) => {
 
 mongoose.connect(MONGODB_URI)
 .then(() => {
-    console.log('server is running');
+    //console.log('server is running');
     app.listen(PORT);
 })
 .catch(err => console.log(err))
