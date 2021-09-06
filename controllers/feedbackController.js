@@ -21,7 +21,7 @@ exports.postFeedback = (req,res,next) => {
     feedback.save()
     .then(() => {
         res.json({
-            message: 'Review saved!'
+            message: 'Thank you for your feedback. We will publish it shortly'
         })
     })
     .catch(err => {

@@ -17,7 +17,7 @@ exports.postRequest = (req,res,next) => {
     data.save()
     .then(() => {
         res.json({
-            message: 'Request submitted correctly'
+            message: 'Thank you for your request. We will contact you shortly'
         })
     })
     .catch(err => {
@@ -39,7 +39,7 @@ exports.postContact = (req,res,next) => {
     data.save()
     .then(() => {
         res.json({
-            message: 'Contact request submitted correctly'
+            message: 'Thank you for your message. We will contact you shortly'
         })
     })
     .catch(err => {
