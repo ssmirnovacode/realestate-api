@@ -1,4 +1,5 @@
 const Request = require('../models/Request');
+const Contact = require('../models/Contact');
 
 exports.postRequest = (req,res,next) => {
     const name = req.body.name;
@@ -17,6 +18,28 @@ exports.postRequest = (req,res,next) => {
     .then(() => {
         res.json({
             message: 'Request submitted correctly'
+        })
+    })
+    .catch(err => {
+        if (!err.statusCode) {
+            err.statusCode = 500; 
+        }
+        next(err); 
+    })
+};
+
+exports.postContact = (req,res,next) => {
+    const name = req.body.name;
+    const lastname = req.body.lastname;
+    const email = req.body.email;
+    const phone = req.body.phone;
+    const comments = req.body.comments;
+
+    const data = new Contact({ name, lastname, email, phone, comments});
+    data.save()
+    .then(() => {
+        res.json({
+            message: 'Contact request submitted correctly'
         })
     })
     .catch(err => {

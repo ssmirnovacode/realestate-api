@@ -4,4 +4,6 @@ const requestsController = require('../controllers/requestsController');
 
 router.post('/send-request', requestsController.postRequest);
 
+router.post('/contact', requestsController.postContact);
+
 module.exports = router;
