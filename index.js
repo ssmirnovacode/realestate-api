@@ -5,6 +5,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
 const PORT = process.env.PORT || 3001;
 
 const homeRoutes = require('./routes/homeRoutes');
+const feedbackRoutes = require('./routes/feedbackRoutes');
 
 const app = express();
 
@@ -18,7 +19,8 @@ app.use((req,res,next) => {
     next();
 });
 
-app.use(homeRoutes);
+app.use('/properties', homeRoutes);
+app.use(feedbackRoutes);
 
 //error handling middleware
 app.use((error, req, res, next) => {

@@ -6,6 +6,6 @@ router.get('/sale', homesController.getSaleItems);
 
 router.get('/rent', homesController.getRentItems);
 
-router.get('/properties/:itemId', homesController.getHomeById)
+router.get('/:itemId', homesController.getHomeById);
 
 module.exports = router;

@@ -6,7 +6,10 @@ exports.getSaleItems = (req,res,next) => {
         res.json({ items });
     })
     .catch(err => {
-        console.log(err);
+        if (!err.statusCode) {
+            err.statusCode = 500; 
+        }
+        next(err); 
     })
 };
 
@@ -16,7 +19,10 @@ exports.getRentItems = (req,res,next) => {
         res.json({ items });
     })
     .catch(err => {
-        console.log(err);
+        if (!err.statusCode) {
+            err.statusCode = 500; 
+        }
+        next(err); 
     })
 };
 
