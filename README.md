@@ -1,7 +1,7 @@
 # REST API for MYrealestate web application
 
 API accessible on heroku:
-https://myrealestate-api.herokuapp.com/properties
+https://myrealestate-api.herokuapp.com/
 
 ## Technologies and libraries used
  - Node.js
