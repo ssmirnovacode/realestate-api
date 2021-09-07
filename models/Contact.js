@@ -21,7 +21,8 @@ const contactSchema = new Schema ({
     comments: {
         type: String,
         required: false
-    }
+    },
+    itemId: String
 },
 { timestamps: true }
 );

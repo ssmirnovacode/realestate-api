@@ -34,8 +34,9 @@ exports.postContact = (req,res,next) => {
     const email = req.body.email;
     const phone = req.body.phone;
     const comments = req.body.comments;
+    const itemId = req.body.itemId;
 
-    const data = new Contact({ name, lastname, email, phone, comments});
+    const data = new Contact({ name, lastname, email, phone, comments, itemId });
     data.save()
     .then(() => {
         res.json({
