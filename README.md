@@ -1,7 +1,7 @@
 # REST API for MYrealestate web application
 
 API accessible on heroku:
--------------/
+https://myrealestate-api.herokuapp.com/properties
 
 ## Technologies and libraries used
  - Node.js
@@ -10,11 +10,11 @@ API accessible on heroku:
  - Mongoose
 
 ### Endpoints:
-GET /properties/sale
-GET /properties/rent
-GET /properties/id
-GET /feedback
-POST /feedback
-POST /send-request
-POST /contact
+ - GET /properties/sale
+ - GET /properties/rent
+ - GET /properties/id
+ - GET /feedback
+ - POST /feedback
+ - POST /send-request
+ - POST /contact
 
