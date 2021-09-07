@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3001;
 const homeRoutes = require('./routes/homeRoutes');
 const feedbackRoutes = require('./routes/feedbackRoutes');
 const requestRoutes = require('./routes/requestRoutes');
+const indexRoutes = require('./routes/indexRoutes');
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use((req,res,next) => {
     next();
 });
 
+app.use(indexRoutes);
 app.use('/properties', homeRoutes);
 app.use(feedbackRoutes);
 app.use(requestRoutes);
