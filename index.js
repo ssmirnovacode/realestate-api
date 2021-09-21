@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+//const bodyParser = require('body-parser');
 
 const MONGODB_URI = process.env.MONGODB_URI;
 const PORT = process.env.PORT || 3001;
@@ -13,6 +14,9 @@ const indexRoutes = require('./routes/indexRoutes');
 const app = express();
 
 app.use(express.json());
+//app.use(express.urlencoded());
+//app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(express.static(path.join('public')));
 
 //CORS policy
