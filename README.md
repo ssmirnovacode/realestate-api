@@ -3,7 +3,7 @@
 https://ssmirnovacode.github.io/my-realestate/
 
 API accessible on heroku:
-https://myrealestate-api.herokuapp.com/
+https://realestate-rest.herokuapp.com/
 
 ## Technologies and libraries used
  - Node.js
