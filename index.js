@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
 
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -12,19 +13,24 @@ const indexRoutes = require('./routes/indexRoutes');
 const app = express();
 
 app.use(express.json());
+app.use(express.static(path.join('public')));
 
 //CORS policy
-app.use((req,res,next) => {
+/* app.use((req,res,next) => {
     res.setHeader('Access-Control-Allow-Origin', '*'); //, http://localhost:3000 . https://ssmirnovacode.github.io
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     next();
-});
+}); */
 
 app.use(indexRoutes);
 app.use('/properties', homeRoutes);
 app.use(feedbackRoutes);
 app.use(requestRoutes);
+
+app.use((req,res,next) => {
+    res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+})
 
 //error handling middleware
 app.use((error, req, res, next) => {
