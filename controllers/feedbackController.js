@@ -1,4 +1,5 @@
 const Feedback = require('../models/Feedback');
+const { validationResult } = require('express-validator');
 
 exports.getFeedback = (req,res,next) => {
     Feedback.find()
@@ -14,6 +15,12 @@ exports.getFeedback = (req,res,next) => {
 };
 
 exports.postFeedback = (req,res,next) => {
+    const errors = validationResult();
+    if (!errors.isEmpty) {
+        const error = new Error(errors.array()[0].msg);
+        error.statusCode = 422;
+        throw error;
+    }
     const author = req.body.author;
     const text = req.body.text;
 
